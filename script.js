@@ -24,7 +24,7 @@
   });
 */
 
-fetch("http://localhost:3000/api/pixels")
+fetch("https://helpyourfather.onrender.com/api/pixels")
   .then(res => res.json())
   .then(pixels => {
     console.log("🧠 Pixels received:", pixels);
@@ -43,7 +43,7 @@ fetch("http://localhost:3000/api/pixels")
       a.style.display = 'block';
 
       const img = document.createElement('img');
-      img.src = `http://localhost:3000/uploads/${pixel.image}`;
+      img.src = `https://helpyourfather.onrender.com/uploads/${pixel.image}`;
       img.style.width = '100%';
       img.style.height = '100%';
       img.style.objectFit = 'cover';

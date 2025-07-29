@@ -128,7 +128,7 @@
       const form = e.target;
       const formData = new FormData(form);
 
-      const res = await fetch('http://localhost:3000/api/pixels', {
+      const res = await fetch('https://helpyourfather.onrender.com/api/pixels', {
         method: 'POST',
         body: formData
       });

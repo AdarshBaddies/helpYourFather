@@ -147,7 +147,7 @@
 
   <script>
     /*async function fetchPixels() {
-      const res = await fetch('http://localhost:3000/api/admin/pixels');
+      const res = await fetch('https://helpyourfather.onrender.com/api/admin/pixels');
       const pixels = await res.json();
       const list = document.getElementById('pixelList');
 
@@ -161,7 +161,7 @@
 
         col.innerHTML = `
           <div class="card shadow-sm">
-            <img src="http://localhost:3000/uploads/${pixel.image}" class="card-img-top" style="height: 150px; object-fit: cover;">
+            <img src="https://helpyourfather.onrender.com/uploads/${pixel.image}" class="card-img-top" style="height: 150px; object-fit: cover;">
             <div class="card-body">
               <h5 class="card-title">${pixel.name}</h5>
               <p class="card-text"><strong>Tooltip:</strong> ${pixel.tooltip}<br>
@@ -183,7 +183,7 @@
     let allPixels = [];
 
     async function fetchPixels() {
-        const res = await fetch('http://localhost:3000/api/admin/pixels');
+        const res = await fetch('https://helpyourfather.onrender.com/api/admin/pixels');
         allPixels = await res.json();
         renderPixels(allPixels);
       }
@@ -202,7 +202,7 @@
 
           col.innerHTML = `
             <div class="card shadow-sm">
-              <img src="http://localhost:3000/uploads/${pixel.image}" class="card-img-top" style="height: 150px; object-fit: cover;">
+              <img src="https://helpyourfather.onrender.com/uploads/${pixel.image}" class="card-img-top" style="height: 150px; object-fit: cover;">
               <div class="card-body">
                 <h5 class="card-title">${pixel.name}</h5>
                 <p class="card-text"><strong>Tooltip:</strong> ${pixel.tooltip}<br>
@@ -247,7 +247,7 @@
 
 
     async function approvePixel(id) {
-      const res = await fetch(`http://localhost:3000/api/admin/pixels/${id}/approve`, { method: 'PATCH' });
+      const res = await fetch(`https://helpyourfather.onrender.com/api/admin/pixels/${id}/approve`, { method: 'PATCH' });
       const data = await res.json();
       alert(data.msg);
       location.reload();
@@ -255,7 +255,7 @@
 
     async function deletePixel(id) {
       if (!confirm('Are you sure you want to delete this pixel?')) return;
-      const res = await fetch(`http://localhost:3000/api/admin/pixels/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://helpyourfather.onrender.com/api/admin/pixels/${id}`, { method: 'DELETE' });
       const data = await res.json();
       alert(data.msg);
       location.reload();
