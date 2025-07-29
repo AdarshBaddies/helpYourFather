@@ -1,0 +1,144 @@
+<!--DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Your Pixel Ad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+    button {
+      background: #000;
+      color: #fff;
+      border: 0;
+      cursor: pointer;
+    }
+    button:hover { background: #333; }
+    .payment {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Submit Your Pixel Ad</h2>
+
+  Replace YOUR-FORMSPREE-ID after creating the form on Formspree
+  <form action="https://formspree.io/f/xzzvrlno" method="POST">
+    <input type="text"   name="name"    placeholder="Your Name"              required>
+    <input type="email"  name="email"   placeholder="Email for confirmation" required>
+    <input type="url"    name="link"    placeholder="Website Link"           required>
+    <input type="text"   name="tooltip" placeholder="Tooltip Text"           required>
+    <input type="url"    name="image"   placeholder="Image URL (10×10 png)"  required>
+    <input type="number" name="x"       placeholder="X (0‑990)"  min="0"  max="990" required>
+    <input type="number" name="y"       placeholder="Y (0‑990)"  min="0"  max="990" required>
+
+    <button type="submit">Submit Request</button>
+  </form>
+
+  <div class="payment">
+    <h4>💳 Payment Info</h4>
+    <p>After submitting, please pay ₹___ via:</p>
+    <ul>
+      <li><strong>UPI:</strong> <code>baddy@upi</code></li>
+      <li><strong>PayPal:</strong> <code>paypal.me/baddy</code></li>
+    </ul>
+    <p>Once I confirm the payment, I’ll add your pixel to the homepage.</p>
+  </div>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Your Pixel Ad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+    button {
+      background: #000;
+      color: #fff;
+      border: 0;
+      cursor: pointer;
+    }
+    button:hover { background: #333; }
+    .payment {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Submit Your Pixel Ad</h2>
+
+  <form id="pixelForm" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email for confirmation" required>
+    <input type="url" name="link" placeholder="Website Link" required>
+    <input type="text" name="tooltip" placeholder="Tooltip Text" required>
+    <input type="file" name="image" accept=".jpg,.jpeg,.png" required>
+    <input type="number" name="x" placeholder="X (0‑99)" min="0" max="99" required>
+    <input type="number" name="y" placeholder="Y (0‑99)" min="0" max="99" required>
+
+    <button type="submit">Submit Request</button>
+  </form>
+
+  <div class="payment">
+    <h4>💳 Payment Info</h4>
+    <p>After submitting, please pay ₹___ via:</p>
+    <ul>
+      <li><strong>UPI:</strong> <code>baddy@upi</code></li>
+      <li><strong>PayPal:</strong> <code>paypal.me/baddy</code></li>
+    </ul>
+    <p>Once I confirm the payment, I’ll add your pixel to the homepage.</p>
+  </div>
+
+  <script>
+    document.getElementById('pixelForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+
+      const res = await fetch('http://localhost:3000/api/pixels', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      alert(data.msg || "Upload successful");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
+
+
