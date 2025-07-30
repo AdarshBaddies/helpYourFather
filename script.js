@@ -43,7 +43,7 @@ fetch("https://helpyourfather.onrender.com/api/pixels")
       a.style.display = 'block';
 
       const img = document.createElement('img');
-      img.src = `https://helpyourfather.onrender.com/uploads/${pixel.image}`;
+      img.src = `${pixel.image}`;
       img.style.width = '100%';
       img.style.height = '100%';
       img.style.objectFit = 'cover';
